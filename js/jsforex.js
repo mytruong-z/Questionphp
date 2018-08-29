@@ -1,4 +1,5 @@
 $(document).ready(function() {
+     var answered = 0;
 
    var myQuestion = $('form').find(".questions");
    var count = myQuestion.length;
@@ -7,19 +8,22 @@ $(document).ready(function() {
   
 
    var inow = $('form').find("> div").first().attr("data-question-id");
+   
+  
    console.log(inow);
    
     $('.questions#question_' + inow ).show();
     $('.buttNext').on('click', function() {
+       
         $('.questions#question_' + inow).hide();
         $('.questions#question_' + inow).next().show();       
         
 
         inow++;
-       /* if(inow==count + 1){
+        if(inow==count + 1){
         
         submit();}
-*/
+
        
         
     })
@@ -32,13 +36,19 @@ $(document).ready(function() {
     })
 
 
+    $('input[type="radio"]').click(function() {
+        submit();
+        answered++;
+        console.log(answered);
+    })
+
 
 
    /*function check(){
           var ans = $('form').find("> div").first().attr("data-ans");
    console.log(ans);
    }*/
-
+   
 
   myQuestion.each(function(i) {
     
@@ -123,3 +133,11 @@ $(document).ready(function() {
 
    }
 })
+
+
+
+
+
+
+
+
