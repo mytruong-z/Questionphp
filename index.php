@@ -22,10 +22,12 @@
 $response="SELECT * from nasa";
 
 $a = $conn->query($response);
+
 while( $result = $a-> fetch_assoc()) {
 
 	
 	$test = json_encode('a'); 
+
  ?>
 <div id="question_<?php echo $result['id'];?>" class='questions' data-question="<?php echo htmlentities($test, ENT_QUOTES, 'UTF-8'); ?>" data-question-id="<?=$result['id']?>" data-answer="<?=$result['answer']?>">
 <h2 id="question_<?php echo $result['id'];?>"><?php echo $result['id'].".".$result['question_name'];?></h2>
@@ -44,8 +46,9 @@ while( $result = $a-> fetch_assoc()) {
 <input type="radio" checked='checked' value="5" style='display:none' id='radio4_<?php echo $result['id'];?>' name='<?php echo $result['id'];?>'>
 </div>
 <br/>
-<input type="button" id='next<?php echo $result['id'];?>' value='Next!' name='buttonNext' class='buttNext butt'/>
-<input type="button" id='prev<?php echo $result['id'];?>' value='Prev!' name='buttonPrev' class='buttPrev butt'/>
+<input type="button" id='next' value='Next!' name='buttonNext' class='buttNext butt'/>
+<input type="button" id='prev' value='Prev!' name='buttonPrev' class='buttPrev butt'/> 
+<input type="button" id='submit' value='Sub!' name='buttonSub' class='buttSub butt'/>
 
 </div>
 <?php }?>
@@ -53,5 +56,7 @@ while( $result = $a-> fetch_assoc()) {
     
 <div id='result'>
 </div>
+<div id="results"></div>
+    <div id="score"></div>
 
 <body>
