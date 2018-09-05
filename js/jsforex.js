@@ -4,11 +4,15 @@ $(document).ready(function() {
      
    var myQuestion = [];
    myQuestion = ($('form').find(".questions"));
-   console.log(myQuestion);
+  
    var count = myQuestion.length;
-   let currentSlide = 0;
-   console.log(count);
 
+   let currentSlide = 0;
+   var abc = ($('div').find(".answerm"));
+  
+   
+   
+/*
       shuffle(myQuestion);
 
     //ALL FUNCTION
@@ -17,7 +21,7 @@ $(document).ready(function() {
     function random question
      */
 
-    function shuffle(myQuestion) {
+  /*  function shuffle(myQuestion) {
         var m = myQuestion.length,
             t, i;
         // continue reverse
@@ -30,16 +34,29 @@ $(document).ready(function() {
             myQuestion[i] = t;
         }
         return myQuestion;
-    }
+    } */
 
 
    $('.questions').hide();
   
+  
   $('.buttNext').on('click', function() {
        $(myQuestion[currentSlide]).hide();
         currentSlide++;
-        console.log(currentSlide);
-        showSlide(currentSlide);   
+        showSlide(currentSlide); 
+        var z = abc[currentSlide].innerHTML;
+        console.log(z);
+        if(z === ids){
+          score++;
+          console.log(score);
+        }
+
+
+       
+       
+        
+       
+        
 
       
    })
@@ -76,44 +93,17 @@ $(document).ready(function() {
        
     }
        
-       function showResults() {
-        // gather answer containers from our quiz
-        var answerContainers = quizContainer.querySelectorAll(".align");
-        console.log(answerContainers);
-
-        // keep track of user's answers
-        let numCorrect = 0;
-        var questionNumber = 
-
-
-        // for each question...
-        myQuestion.forEach((currentSlide, questionNumber) => {
-            // find selected answer
-            var answerContainer = answerContainers[questionNumber];
-            var selector = `input[id=${questionNumber}]:checked`;
-            var userAnswer = (answerContainer.querySelector(selector) || {}).value;
-            // if answer is correct
-            if (userAnswer === currentSlide.answer) {
-                // add to the number of correct answers
-                numCorrect++;
-                console.log(numCorrect);
-
-                // color the answers green
-                answerContainers[questionNumber].style.color = "lightgreen";
-            } else {
-                // if answer is wrong or blank
-                // color the answers red
-
-                answerContainers[questionNumber].style.color = "red";
-            }
-        });
-        // show number of correct answers out of total
-        resultsContainer.innerHTML = `${numCorrect} out of ${myQuestion.length} <br>`;
-        
-    }
+      
 
 //show the next slide
     function checkQuestion() {
+
+
+       
+      
+       
+       
+      //  console.log(score);
 
 
       
@@ -143,17 +133,23 @@ $(document).ready(function() {
 
 
    $('input[type="radio"]').click(function() {
-        answered++;
+     var ids = $(this).val();
+     console.log(ids);
+
+        
 
 
     }) 
     
      $('.buttSub').on('click',function(){
+    
          if (answered < myQuestion.length) {
             alert("Bạn đã chọn " + answered + " câu trên " + myQuestion.length + " câu");
         } 
         if(currentSlide == count - 1){showResults();}
     })
+
+     
   
 
 
