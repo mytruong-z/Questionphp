@@ -50,6 +50,8 @@ while( $result = $a-> fetch_assoc()) {
 
 <label id='ans4_<?php echo $result['id'];?>' for='1'><input type="radio" value="4" id='radio4_<?php echo $result['id'];?>' class="input" name='<?php echo $result['id'];?>'>
 	<?php echo $result['answer4'];?></label>
+<input type="radio" checked='checked' value="5" style='display:none' id='radio4_<?php echo $result['id'];?>' name='<?php echo $result['id'];?>'>
+	
 
 
 </div>
@@ -59,15 +61,18 @@ while( $result = $a-> fetch_assoc()) {
 
 
 <br/>
-<input type="button" id='next' value='Next!' name='buttonNext' class='buttNext butt'/>
-<input type="button" id='prev' value='Prev!' name='buttonPrev' class='buttPrev butt'/> 
+
+<input type="button" id='prev' value='Prev!' name='buttonPrev' class='buttPrev butt'/>
+<input type="button" id='next' value='Next!' name='buttonNext' class='buttNext butt'/> <br> 
 <input type="button" id='submit' value='Sub!' name='buttonSub' class='buttSub butt'/>
 
 </div>
 
 <?php }?>
 </form>
-	<div id="results"></div>
+	<div id="results">
+		<h3 id ="num"></h3>
+	</div>
     <div id="score"></div>
     
 

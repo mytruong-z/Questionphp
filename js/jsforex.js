@@ -1,6 +1,7 @@
 $(document).ready(function() {
      var answered = 0;
      var score = 0;
+     var idno = [];
      
    var myQuestion = [];
    myQuestion = ($('form').find(".questions"));
@@ -9,6 +10,9 @@ $(document).ready(function() {
 
    let currentSlide = 0;
    var abc = ($('div').find(".answerm"));
+    
+          
+
   
    
    
@@ -47,21 +51,34 @@ $(document).ready(function() {
        $(myQuestion[currentSlide]).hide();
         currentSlide++;
         showSlide(currentSlide); 
-        var z = abc[currentSlide].innerHTML;     
-
+        var z = abc[currentSlide].innerHTML;
+        var inow = $('form').find("> div").attr("data-question-id");
+        console.log(inow[currentSlide]);
         
+
+
 
       
    })
+
+
    $('input[type="radio"]').click(function() {
          var ids = $(this).val();
           var z = abc[currentSlide].innerHTML;
           if(z === ids){
           score++;
           console.log(score);
+
         }
 
+
+        answered++;
+        var y = 1;
+       
+
     })
+
+
 
   $('.buttPrev').on('click',function(){
     $(myQuestion[currentSlide]).hide();
@@ -99,27 +116,23 @@ $(document).ready(function() {
        
       
 
-//show the next slide
+//show the result
     function End() {
               $('.questions').hide();
               $('#results').append('Bạn đạt' + ' ' + score + ' ' + 'trên tổng số' + ' ' + count + ' ' + 'câu');
                     $(document.createElement('h3')).css({'text-align':'center', 'font-size':'4em'}).text(Math.round(score/quiz.length * 100) + '%').insertAfter('#results');
 
        
-      //  console.log(score)
-      
-       
+      //  console.log(score)  
             
     }
-    
-//show the previous slide
-    function showPreviousSlide() {
-        showSlide(currentSlide - 1);
-    } 
 
-    var quizContainer =  document.getElementById("quiz");
-    var resultsContainer = document.getElementById("results");
-    var scoreContainer = document.getElementById("score");
+
+    
+
+   
+
+   
     var submitButton = document.getElementById("submit");
 
     // display quiz right away
@@ -134,12 +147,17 @@ $(document).ready(function() {
 
 
      $('.buttSub').on('click',function(){
-        if(currentSlide == count - 1){End();}
-        else {
-            alert("Bạn đã chọn " + answered + " câu trên " + myQuestion.length + " câu");
-        } 
-       
-    })
+       if(currentSlide == count - 1){
+         if (answered == 0){
+           alert("Vui lòng bấm nút trở về để chọn câu trả lời !!!");
+         } else {
+         End();
+       }
+       }
+       else {
+           alert("Bạn đã chọn " + answered + " câu trên " + myQuestion.length + " câu");
+       }
+   })
 
      
   
