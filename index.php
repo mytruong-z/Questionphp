@@ -67,10 +67,8 @@ while( $result = $a-> fetch_assoc()) {
 
 <?php }?>
 </form>
-    
-<div id='result'>
-</div>
-<div id="results"></div>
+	<div id="results"></div>
     <div id="score"></div>
+    
 
 <body>

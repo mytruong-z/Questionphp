@@ -70,17 +70,10 @@ font-weight: bold;
     text-decoration: none;
     color: #fff;
 }
-.site-link a, .site-link a:visited{
-    color: #888;
-    font-size: 14px;
-    font-family: arial, sans-serif;
-    float: right;
-    margin-right: 10%;
-    text-decoration: none;
-}
-.site-link a:hover{
-    color: #E62600;
-}
+
 #submit {
     background-color: black;
+}
+#results {
+text-align: center;
 }

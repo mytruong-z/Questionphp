@@ -102,6 +102,8 @@ $(document).ready(function() {
 //show the next slide
     function End() {
               $('.questions').hide();
+              $('#results').append('Bạn đạt' + ' ' + score + ' ' + 'trên tổng số' + ' ' + count + ' ' + 'câu');
+                    $(document.createElement('h3')).css({'text-align':'center', 'font-size':'4em'}).text(Math.round(score/quiz.length * 100) + '%').insertAfter('#results');
 
        
       //  console.log(score)
