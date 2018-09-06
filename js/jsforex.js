@@ -14,9 +14,7 @@ $(document).ready(function() {
    
 /*
       shuffle(myQuestion);
-
     //ALL FUNCTION
-
     /*
     function random question
      */
@@ -38,28 +36,32 @@ $(document).ready(function() {
 
 
    $('.questions').hide();
+
+
+
+    
+    
   
   
   $('.buttNext').on('click', function() {
        $(myQuestion[currentSlide]).hide();
         currentSlide++;
         showSlide(currentSlide); 
-        var z = abc[currentSlide].innerHTML;
-        console.log(z);
-        if(z === ids){
-          score++;
-          console.log(score);
-        }
+        var z = abc[currentSlide].innerHTML;     
 
-
-       
-       
-        
-       
         
 
       
    })
+   $('input[type="radio"]').click(function() {
+         var ids = $(this).val();
+          var z = abc[currentSlide].innerHTML;
+          if(z === ids){
+          score++;
+          console.log(score);
+        }
+
+    })
 
   $('.buttPrev').on('click',function(){
     $(myQuestion[currentSlide]).hide();
@@ -84,28 +86,25 @@ $(document).ready(function() {
         if (currentSlide === count - 1) {
             $('.buttNext').hide();
             submitButton.style.display = "inline-block";
+            
 
         } else {
              $('.buttNext').show();
             nextButton.style.display = "inline-block";
             //submitButton.style.display = "none";
         }  
+
        
     }
        
       
 
 //show the next slide
-    function checkQuestion() {
-
+    function End() {
+              $('.questions').hide();
 
        
-      
-       
-       
-      //  console.log(score);
-
-
+      //  console.log(score)
       
        
             
@@ -132,21 +131,12 @@ $(document).ready(function() {
 
 
 
-   $('input[type="radio"]').click(function() {
-     var ids = $(this).val();
-     console.log(ids);
-
-        
-
-
-    }) 
-    
      $('.buttSub').on('click',function(){
-    
-         if (answered < myQuestion.length) {
+        if(currentSlide == count - 1){End();}
+        else {
             alert("Bạn đã chọn " + answered + " câu trên " + myQuestion.length + " câu");
         } 
-        if(currentSlide == count - 1){showResults();}
+       
     })
 
      
@@ -157,23 +147,3 @@ $(document).ready(function() {
  
 
   })
-       
-
-        
- 
-
-
-
-  
-  
-            
-
-  
-
-
-
-
-
-
-
-
