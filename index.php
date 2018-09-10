@@ -11,13 +11,13 @@
 <script src="js/jsforex.js"></script>
 </head>
  
-<body>
+<body class="style-body">
 
 
 
 	
 <h1>Bạn có đủ thông minh để trở thành nhà du hành vũ trụ của NASA không?</h1>
-<form method='post' id='quiz_form'>
+<form  method='post' id='quiz_form'>
 <?php
 $response="SELECT * from nasa";
 
