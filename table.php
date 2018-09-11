@@ -10,7 +10,6 @@
 
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/jsforex.js"></script>
 <style>
 table, th, td {
     border: 2px solid black;
@@ -23,12 +22,10 @@ table, th, td {
  
 <body>
 <h1 class="h1">QUESTION LIST</h1>
-
-
 <div class="container">
     <a class="btn btn-danger co-ma-a" href="form.html">Add Question</a>
+    <br>
 <table class ="table" method='post'>
-
 <tr>
     <th>ID</th>
     <th>Question</th>
@@ -68,7 +65,7 @@ while( $result = $a-> fetch_assoc()) {
 <td id='ans5_<?php echo $result['id'];?>' for='1' value="5" id='radio4_<?php echo $result['id'];?>' class="input col-lg-1" name='<?php echo $result['id'];?>'>
     <?php echo $result['answer'];?></td> 
       
-<td><a href="update.php?id=<?php echo $result['id'];?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+<td><a  href="update.php?id=<?php echo $result['id'];?>">Edit</a></td>
           
     <td>
                <button type="button" class="btn btn-info btn-xs co-del" data-toggle="modal" data-target="#myModal<?php echo $result['id']; ?>">Delete</button>
@@ -97,7 +94,7 @@ while( $result = $a-> fetch_assoc()) {
             </td>
    
 </tr>
-<br/>
+
 
 
    
