@@ -21,7 +21,7 @@ if(isset($_GET['id'])){
     $ket_qua = $connect->query($sql);
     
     while ($row = $ket_qua->fetch_array(MYSQLI_ASSOC)) {
-        $question     = $row['question_name'];
+        $question_name     = $row['question_name'];
         $answer1       = $row['answer1'];
         $answer2       = $row['answer2'];
         $answer3     = $row['answer3'];
@@ -39,7 +39,7 @@ if(isset($_GET['id'])){
     <link rel="stylesheet" type="text/css" href="css/mystyle.css">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    
+    <script src="js/jsforex.js"></script>
     <style>
         form {
             padding-top: 20px;
@@ -66,7 +66,7 @@ if(isset($_GET['id'])){
     <form action="process.php" method="post">
         <h1>EDIT QUESTION</h1>
         ID : <input type="hidden" name="id" value="<?php echo $id; ?>">
-        <?php echo $id; ?><br><br> Question : <input type="text" name="question" value="<?php echo $question; ?>"><br><br> Answer1 : <input type="text" name="answer1" value="<?php echo $answer1; ?>"><br><br> Answer2 : <input type="text" name="answer2" value="<?php echo $answer2; ?>"><br><br>       
+        <?php echo $id; ?><br><br> Question : <input type="text" name="question_name" value="<?php echo $question_name; ?>"><br><br> Answer1 : <input type="text" name="answer1" value="<?php echo $answer1; ?>"><br><br> Answer2 : <input type="text" name="answer2" value="<?php echo $answer2; ?>"><br><br>       
         Answer3 : <input type="text" name="answer3" value="<?php echo $answer3; ?>"><br><br> Answer4 : <input type="text" name="answer4" value="<?php echo $answer4; ?>"><br><br> Answer : <input type="number" min="1" max="4" name="answer" value="<?php echo $answer; ?>">
         <h3>(Please input "Answer" from 1 to 4)</h3><br>
         <button type="submit" class="btn btn-success btn-lg">EDIT</button>

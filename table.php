@@ -24,7 +24,7 @@ table, th, td {
 <h1 class="h1">QUESTION LIST</h1>
 <div class="container">
     <a class="btn btn-danger co-ma-a" href="form.html">Add Question</a>
-    <br>
+    
 <table class ="table" method='post'>
 <tr>
     <th>ID</th>
@@ -65,10 +65,10 @@ while( $result = $a-> fetch_assoc()) {
 <td id='ans5_<?php echo $result['id'];?>' for='1' value="5" id='radio4_<?php echo $result['id'];?>' class="input col-lg-1" name='<?php echo $result['id'];?>'>
     <?php echo $result['answer'];?></td> 
       
-<td><a  href="update.php?id=<?php echo $result['id'];?>">Edit</a></td>
+<td><a  href="update.php?id=<?php echo $result['id'];?>"><button type="button" class="btn btn-warning">Edit</button></a></td>
           
     <td>
-               <button type="button" class="btn btn-info btn-xs co-del" data-toggle="modal" data-target="#myModal<?php echo $result['id']; ?>">Delete</button>
+               <button type="button" class="btn btn-info btn-md co-del" data-toggle="modal" data-target="#myModal<?php echo $result['id']; ?>">Delete</button>
      
               <!-- Modal -->
                 <div class="modal fade" id="myModal<?php echo $result['id']; ?>" role="dialog">

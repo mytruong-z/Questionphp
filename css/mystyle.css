@@ -99,3 +99,12 @@ display: none;
     font-weight: bold;
 
 }
+.co-del {
+    background-color: red;
+    border-color: red;
+}
+.log-in {
+    float: right;
+    color: white;
+    padding-left: 20px;
+}

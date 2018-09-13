@@ -14,9 +14,15 @@
 <body class="style-body">
 
 
-
+<div class="container">
+	<a href="user.php" class="log-in" >Sign Up</a>
+	<a href="#" class="log-in" >Log In</a>
 	
+	
+</div>
+
 <h1>Bạn có đủ thông minh để trở thành nhà du hành vũ trụ của NASA không?</h1>
+
 <form method='post' id='quiz_form'>
 <?php
 $response="SELECT * from nasa";
