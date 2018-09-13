@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="css/signup.css">
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  
 </head>
 <div class="form">
        
@@ -21,30 +22,31 @@
           <h1>Sign Up for Free</h1>
            
           <form action="signup.php" method="post">
-            <?php include('errors.php'); ?>
+            
            
            
           <div class="top-row">
             <div class="field-wrap">
-              <input type="text" name="First_Name"  placeholder="First name*"/>
+              <input type="text" name="First_Name" required  placeholder="First name*"/>
+
             </div>
          
             <div class="field-wrap">
-              <input type="text" name="Last_Name" placeholder="Last name*"/>
+              <input type="text" name="Last_Name" required placeholder="Last name*"/>
             </div>
           </div>
           <div class="field-wrap">
-           <input  type="text" name="Username"  placeholder="User name*"/>
+           <input  type="text" name="Username" required placeholder="User name*"/>
           </div>
  
           <div class="field-wrap">
-           <input type="text" name="Email" placeholder="Email*"/>
+           <input type="text" name="Email" required placeholder="Email*"/>
           </div>
            
           <div class="field-wrap">
-           <input type="password" name="Password" placeholder="Set A Password*"/>
+           <input type="password" name="Password" required placeholder="Set A Password*"/>
           </div>
-          <button type="submit" class="button button-block"/>Get Started</button>
+          <button type="submit" name="reg_user" class="button button-block"/>Get Started</button>
            
           </form>
  

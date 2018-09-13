@@ -1,5 +1,7 @@
 <?php
   session_start();
+  $errors = array(); 
+  $_SESSION['errors'] = $errors;
 
   $First_Name = filter_input(INPUT_POST,'First_Name');
   $Last_Name = filter_input(INPUT_POST,'Last_Name');
@@ -61,15 +63,12 @@
     }
   }
   
-  else {
-    echo "FirstName should not be empty";
-    die();
-  }
+  
 
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $db = mysqli_connect('localhost', 'root', '', 'quiz');
+ /* $db = mysqli_connect('localhost', 'root', '', 'quiz');
   $user_check_query = "SELECT * FROM user WHERE Username='$Username' OR Email='$Email' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
@@ -82,10 +81,11 @@
     if ($user['Email'] === $Email) {
       array_push($errors, "email already exists");
     }
-  }
+  } */
 
 
 
 
 
 ?>
+
