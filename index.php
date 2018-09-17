@@ -15,8 +15,8 @@
 
 
 <div class="container">
-	<a href="user.php" class="log-in" >Sign Up</a>
-	<a href="#" class="log-in" >Log In</a>
+	<a href="formSignup.php" class="log-in" >Sign Up</a>
+	<a href="login.php" class="log-in" >Log In</a>
 	
 	
 </div>
