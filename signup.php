@@ -19,7 +19,7 @@
               $dbusername = "root";
               $dbpassword = "";
               $dbname = "quiz";
-              $errors = array();
+            
               //creat connection
               $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
               mysqli_set_charset($conn,'utf8');
@@ -32,6 +32,7 @@
               else{
                 $sql = "INSERT INTO user (First_Name,Last_Name,Username,Email,Password)
                 values ('$First_Name','$Last_Name','$Username','$Email','$Password')";
+                
                 if ($conn->query($sql)){
                   echo "New user is inserted sucessfully";
                 }
@@ -68,20 +69,18 @@
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
- /* $db = mysqli_connect('localhost', 'root', '', 'quiz');
+  $db = mysqli_connect('localhost', 'root', '', 'quiz');
   $user_check_query = "SELECT * FROM user WHERE Username='$Username' OR Email='$Email' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
   if ($user) { // if user exists
     if ($user['Username'] === $Username) {
-      array_push($errors, "Username already exists");
+      echo "Tên người dùng này đã được sửa dụng";
     }
 
-    if ($user['Email'] === $Email) {
-      array_push($errors, "email already exists");
-    }
-  } */
+    
+  } 
 
 
 
