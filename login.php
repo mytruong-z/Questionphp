@@ -51,7 +51,7 @@ session_start();
             $Username = strip_tags($Username);
             $Username = addslashes($Username);
             $Password = strip_tags($Password);
-            $pass = addslashes($pass);
+            $Password = addslashes($Password);
             if ($Username == "" || $Password =="") {
               echo "username hoặc password bạn không được để trống!";
             }else{

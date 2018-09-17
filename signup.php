@@ -1,7 +1,6 @@
 <?php
   session_start();
-  $errors = array(); 
-  $_SESSION['errors'] = $errors;
+  
 
   $First_Name = filter_input(INPUT_POST,'First_Name');
   $Last_Name = filter_input(INPUT_POST,'Last_Name');
@@ -9,11 +8,7 @@
   $Email = filter_input(INPUT_POST,'Email');
   $Password = filter_input(INPUT_POST,'Password');
   
-  if(!empty($First_Name)) {
-    if (!empty($Last_Name)){ 
-      if(!empty($Username)){ 
-        if(!empty($Email)){
-          if(!empty($Password)){
+ 
            
               $host = "localhost";
               $dbusername = "root";
@@ -32,55 +27,34 @@
               else{
                 $sql = "INSERT INTO user (First_Name,Last_Name,Username,Email,Password)
                 values ('$First_Name','$Last_Name','$Username','$Email','$Password')";
+                 $user_check_query = "SELECT * FROM user WHERE Username='$Username' OR Email='$Email' LIMIT 1";
+                  $result = mysqli_query($conn, $user_check_query);
+                  $user = mysqli_fetch_assoc($result);
+                  
+                  if ($user) { // if user exists
+                    if ($user['Username'] === $Username) {
+                      echo '<script language="javascript">alert("Tên người dùng này đã được sử dụng. Vui lòng nhập tên khác !!!"); window.location="formSignup.php";</script>';
+                    } else {
+                        if ($conn->query($sql)){
+                      echo "New user is inserted sucessfully";
+                    }
+                    else {
+                      echo "Error: " .$sql ."<br>".$conn->error;
+                    }
+                    $conn->close();
+
+                    }
                 
-                if ($conn->query($sql)){
-                  echo "New user is inserted sucessfully";
-                }
-                else {
-                  echo "Error: " .$sql ."<br>".$conn->error;
-                }
-                $conn->close();
               }
             }
-
-    
-    
-    
-    else{
-      echo "Password should not be empty";
-    }
-    }
-    else{
-      echo "Email should not be empty";
-    }
-    }
-    else{
-      echo "Username should not be empty";
-    }
-    }
-    else{
-      echo "LastName should not be empty";
-      die();
-    }
-  }
-  
+           
   
 
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $db = mysqli_connect('localhost', 'root', '', 'quiz');
-  $user_check_query = "SELECT * FROM user WHERE Username='$Username' OR Email='$Email' LIMIT 1";
-  $result = mysqli_query($db, $user_check_query);
-  $user = mysqli_fetch_assoc($result);
-  
-  if ($user) { // if user exists
-    if ($user['Username'] === $Username) {
-      echo "Tên người dùng này đã được sửa dụng";
-    }
-
-    
-  } 
+ /* $db = mysqli_connect('localhost', 'root', '', 'quiz'); */
+ 
 
 
 

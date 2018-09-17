@@ -21,6 +21,8 @@ table, th, td {
 </head>
  
 <body>
+  <div class="container">
+  <button style="float: right;" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modallogout">LOG OUT</button></div>
 <h1 class="h1">QUESTION LIST</h1>
 <div class="container">
     <a class="btn btn-danger co-ma-a" href="form.html">Add Question</a>
@@ -91,6 +93,27 @@ while( $result = $a-> fetch_assoc()) {
                     
                   </div>
                 </div>
+                 <!-- Modal log-->
+                <div class="modal fade" id="modallogout" role="dialog">
+                                  <div class="modal-dialog">
+                                  
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Warning</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                        <p>Do you want to log out?</p>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <a href="table.php"><button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button></a>
+                                        <a href="index.php"><button type="button" class="btn btn-info "> Yes</button></a>
+                                      </div>
+                                    </div>
+                                    
+                                  </div>
+                                </div>
             </td>
    
 </tr>
