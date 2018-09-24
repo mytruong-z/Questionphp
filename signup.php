@@ -36,7 +36,7 @@
                       echo '<script language="javascript">alert("Tên người dùng này đã được sử dụng. Vui lòng nhập tên khác !!!"); window.location="formSignup.php";</script>';
                     } else {
                         if ($conn->query($sql)){
-                      echo "New user is inserted sucessfully";
+                      echo '<script language="javascript">alert("Chúc mừng bạn đã đăng ký thành công !!!"); window.location="login.php";</script>';
                     }
                     else {
                       echo "Error: " .$sql ."<br>".$conn->error;

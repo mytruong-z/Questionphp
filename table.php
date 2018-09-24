@@ -1,6 +1,21 @@
 <?php require_once 'config.php';?>
+
+<?php 
+session_start();
+//unset($_SESSION['msg']); di
+ 
+  ?>
+  <?php require_once 'permission.php';
+if (!isLoggedIn()) {
+  $_SESSION['msg'] = "You must log in first";
+  header('location: login.php');
+}
+  ?>
+
 <!DOCTYPE html>
 <html>
+
+
 <head>
 <title>Table-Question</title>
 <meta charset='utf-8'>
@@ -25,7 +40,7 @@ table, th, td {
   <button style="float: right;" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modallogout">LOG OUT</button></div>
 <h1 class="h1">QUESTION LIST</h1>
 <div class="container">
-    <a class="btn btn-danger co-ma-a" href="form.html">Add Question</a>
+    <a class="btn btn-danger co-ma-a" href="form.php">Add Question</a>
     
 <table class ="table" method='post'>
 <tr>
@@ -108,7 +123,8 @@ while( $result = $a-> fetch_assoc()) {
                                       </div>
                                       <div class="modal-footer">
                                         <a href="table.php"><button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button></a>
-                                        <a href="index.php"><button type="button" class="btn btn-info "> Yes</button></a>
+                                        <a href="logout.php"><button type="button" name ="logout" class="btn btn-info "> Yes</button></a>
+                                        
                                       </div>
                                     </div>
                                     
@@ -127,3 +143,5 @@ while( $result = $a-> fetch_assoc()) {
 </table>
 </diV>
 <body>
+
+  

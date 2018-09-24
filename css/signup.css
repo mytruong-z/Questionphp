@@ -107,7 +107,7 @@ label.highlight {
  
 input, textarea {
   font-size: 22px;
-  display: block;
+  
   width: 100%;
   padding: 5px 10px;
   background: none;
@@ -121,6 +121,11 @@ input, textarea {
 input:focus, textarea:focus {
   outline: 0;
   border-color: seagreen;
+}
+.inputCheck {
+  width: 10%;
+  margin-bottom: 10px;
+  
 }
  
 textarea {
