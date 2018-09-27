@@ -1,64 +1,47 @@
-<?php
-  session_start();
-  
+<!DOCTYPE html>
+<html>
 
-  $First_Name = filter_input(INPUT_POST,'First_Name');
-  $Last_Name = filter_input(INPUT_POST,'Last_Name');
-  $Username = filter_input(INPUT_POST,'Username');
-  $Email = filter_input(INPUT_POST,'Email');
-  $Password = filter_input(INPUT_POST,'Password');
-  
- 
-           
-              $host = "localhost";
-              $dbusername = "root";
-              $dbpassword = "";
-              $dbname = "quiz";
-            
-              //creat connection
-              $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
-              mysqli_set_charset($conn,'utf8');
+<head>
+    <title>Form signup</title>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/signup.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jsforex.js"></script>
+</head>
 
+<body>
+    <div class="form">
+        <ul class="tab-group">
+            <li class="tab active"><a href="signup.php">Sign Up</a></li>
+            <li class="tab"><a href="login.php">Log In</a></li>
+        </ul>
+        <div class="tab-content">
+            <h1>Sign Up for Free</h1>
+            <form action="dangky.php" method="post">
+                <div class="top-row">
+                    <div class="field-wrap">
+                        <input type="text" name="first_name" required placeholder="First name*">
+                    </div>
+                    <div class="field-wrap">
+                        <input type="text" name="last_name" required placeholder="Last name*">
+                    </div>
+                </div>
+                <div class="field-wrap">
+                    <input type="text" name="username" required placeholder="Username*">
+                </div>
+                <div class="field-wrap">
+                    <input type="text" name="email" required placeholder="Email*">
+                </div>
+                <div class="field-wrap">
+                    <input type="password" name="pass" required placeholder="Set a password*">
+                </div>
+                <input id="submit" type="submit" value="Get Started" class="button button-block">
 
-              if (mysqli_connect_error()) {
-                die('Connec error('. mysqli_connect_error().') '
-                  . mysqli_connect_error());
-              }
-              else{
-                $sql = "INSERT INTO user (First_Name,Last_Name,Username,Email,Password)
-                values ('$First_Name','$Last_Name','$Username','$Email','$Password')";
-                 $user_check_query = "SELECT * FROM user WHERE Username='$Username' OR Email='$Email' LIMIT 1";
-                  $result = mysqli_query($conn, $user_check_query);
-                  $user = mysqli_fetch_assoc($result);
-                  
-                  if ($user) { // if user exists
-                    if ($user['Username'] === $Username) {
-                      echo '<script language="javascript">alert("Tên người dùng này đã được sử dụng. Vui lòng nhập tên khác !!!"); window.location="formSignup.php";</script>';
-                    } else {
-                        if ($conn->query($sql)){
-                      echo '<script language="javascript">alert("Chúc mừng bạn đã đăng ký thành công !!!"); window.location="login.php";</script>';
-                    }
-                    else {
-                      echo "Error: " .$sql ."<br>".$conn->error;
-                    }
-                    $conn->close();
+            </form>
+        </div>
+    </div>
+</body>
 
-                    }
-                
-              }
-            }
-           
-  
-
-
-  // first check the database to make sure 
-  // a user does not already exist with the same username and/or email
- /* $db = mysqli_connect('localhost', 'root', '', 'quiz'); */
- 
-
-
-
-
-
-?>
-
+</html>

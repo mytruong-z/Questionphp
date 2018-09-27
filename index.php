@@ -16,7 +16,7 @@
 
 
 <div class="container">
-	<a href="formSignup.php" class="log-in" >Sign Up</a>
+	<a href="signup.php" class="log-in" >Sign Up</a>
 	<a href="login.php" class="log-in" >Log In</a>
 	
 	

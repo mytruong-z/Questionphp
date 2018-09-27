@@ -55,7 +55,7 @@ if (isLoggedIn()) {
        
       <ul class="tab-group">
          <li class="tab active"><a href="login.php">Log In</a></li>
-        <li class="tab "><a href="formSignup.php">Sign Up</a></li>
+        <li class="tab "><a href="signup.php">Sign Up</a></li>
        
       </ul>
        
@@ -76,7 +76,7 @@ if (isLoggedIn()) {
           </div>
            
           
-           <lable> <input class="inputcheck" type="checkbox" name="remember" value="remember">Ghi Nhớ</lable>
+           <p class="forgot"><a href="forgotPassword.php">Forgot Password?</a></p>
 
           
                 
